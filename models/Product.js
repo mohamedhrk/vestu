@@ -19,7 +19,7 @@ const productSchema = new mongoose.Schema({
   },
   images: [{ 
     type: String 
-  }], // URLs to hosted images
+  }], 
   stock: { 
     type: Number, 
     default: 0 
@@ -30,7 +30,7 @@ const productSchema = new mongoose.Schema({
   colors: [{ 
     type: String, 
     enum: ["Black", "White"] 
-  }], // Only Black and White
+  }], 
   featured: { 
     type: Boolean, 
     default: false 
@@ -38,11 +38,7 @@ const productSchema = new mongoose.Schema({
   createdAt: { 
     type: Date, 
     default: Date.now 
-  },
-  createdBy: { 
-    type: mongoose.Schema.Types.ObjectId, 
-    ref: "User" 
-  } // Admin who added the product
+  }
 });
 
 module.exports = mongoose.model("Product", productSchema);
