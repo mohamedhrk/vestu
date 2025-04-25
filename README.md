@@ -15,38 +15,38 @@
 
 ## **Features**
 
-### 1. **Home Page + Navigation**
+### 1. **Home Page + Navigation** – *Nouran*
    - Displays featured products and categories.
    - Navbar with login/register links, search bar, and cart icon.
    - Hero banner section highlighting seasonal collections and promotions.
    - Footer with links to shopping categories, customer service, and legal information.
 
-### 2. **Product Listing + Search**
+### 2. **Product Listing + Search** – *Menna*
    - Product grid with images, names, prices, and descriptions.
    - Category filter and search bar functionality.
    - Redirects to product details page on click.
 
-### 3. **Product Page (Details)**
+### 3. **Product Page (Details)** – *Marvi*
    - Displays product image, name, description, price, colors, sizes, and reviews.
    - “Add to Cart” functionality.
    - User reviews section with submission functionality.
 
-### 4. **Cart Page**
+### 4. **Cart Page** – *Shahd*
    - Allows users to view and update cart items (quantity, size, color).
    - Checkout button to proceed to order placement.
 
-### 5. **User Authentication (Login/Register)**
+### 5. **User Authentication (Login/Register)** – *Abdo*
    - Register and login functionality with JWT token management.
    - Protects private routes for logged-in users.
 
-### 6. **Checkout**
+### 6. **Checkout** – *Malak*
    - Users can place orders by providing shipping address and payment ID.
 
-### 7. **User Profile / Order History**
+### 7. **User Profile / Order History** – *Merna*
    - View and edit user profile.
    - Displays order history with status updates.
 
-### 8. **Admin Dashboard**
+### 8. **Admin Dashboard** – *Hagag*
    - Admin panel for managing products and viewing orders.
    - Admin-only routes protected by middleware.
 
@@ -83,33 +83,33 @@
 ## **API Documentation**
 
 ### **User Routes**
-- **POST /api/auth/register** - Register a new user.
-- **POST /api/auth/login** - Login a user and receive a JWT token.
-- **GET /api/user/profile** - Get user profile (requires authentication).
-- **PUT /api/user/profile** - Update user profile.
+- **POST /api/auth/register** - Register a new user (*Abdo*).
+- **POST /api/auth/login** - Login a user and receive a JWT token (*Abdo*).
+- **GET /api/user/profile** - Get user profile (requires authentication) (*Merna*).
+- **PUT /api/user/profile** - Update user profile (*Merna*).
 
 ### **Product Routes**
-- **GET /api/products** - Get all products.
-- **GET /api/products/:id** - Get product details.
-- **GET /api/products/featured** - Get featured products.
-- **POST /api/products/:id/reviews** - Add a review.
-- **GET /api/products/:id/reviews** - View reviews.
+- **GET /api/products** - Get all products (*Menna*).
+- **GET /api/products/:id** - Get product details (*Marvi*).
+- **GET /api/products/featured** - Get featured products (*Nouran*).
+- **POST /api/products/:id/reviews** - Add a review (*Marvi*).
+- **GET /api/products/:id/reviews** - View reviews (*Marvi*).
 
 ### **Cart Routes**
-- **GET /api/cart** - View cart.
-- **POST /api/cart** - Add product to cart.
-- **PUT /api/cart/:itemId** - Update cart item.
-- **DELETE /api/cart/:itemId** - Remove item from cart.
+- **GET /api/cart** - View cart (*Shahd*).
+- **POST /api/cart** - Add product to cart (*Shahd*).
+- **PUT /api/cart/:itemId** - Update cart item (*Shahd*).
+- **DELETE /api/cart/:itemId** - Remove item from cart (*Shahd*).
 
 ### **Order Routes**
-- **POST /api/orders** - Place a new order.
-- **GET /api/orders/user** - Get all orders for the logged-in user.
+- **POST /api/orders** - Place a new order (*Malak*).
+- **GET /api/orders/user** - Get all orders for the logged-in user (*Merna*).
 
 ### **Admin Routes**
-- **GET /api/admin/products** - View all products (admin only).
-- **POST /api/admin/products** - Add a new product (admin only).
-- **PUT /api/admin/products/:id** - Edit product details (admin only).
-- **DELETE /api/admin/products/:id** - Delete product (admin only).
+- **GET /api/admin/products** - View all products (admin only) (*Hagag*).
+- **POST /api/admin/products** - Add a new product (admin only) (*Hagag*).
+- **PUT /api/admin/products/:id** - Edit product details (admin only) (*Hagag*).
+- **DELETE /api/admin/products/:id** - Delete product (admin only) (*Hagag*).
 
 ---
 
@@ -188,5 +188,13 @@ Each model defines the schema for its respective collection in MongoDB:
 
 ## **Contributors**
 
-This project was developed as part of a college learning initiative. Special thanks to the team members who contributed to this project.
+This project was developed as part of a college learning initiative. Special thanks to the team members who contributed to this project:
 
+- **Nouran**: Home Page + Navigation
+- **Menna**: Product Listing + Search
+- **Marvi**: Product Details
+- **Shahd**: Cart Page
+- **Abdo**: User Authentication (Login/Register)
+- **Malak**: Checkout
+- **Merna**: User Profile / Order History
+- **Hagag**: Admin Dashboard
