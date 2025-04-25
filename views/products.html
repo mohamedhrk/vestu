@@ -41,55 +41,36 @@
     </nav>
   </header>
   
-  <!-- Hero Section -->
-  <section class="hero">
+  <!-- Products Page -->
+  <section class="products-page">
     <div class="container">
-      <div class="hero-content">
-        <h1>Summer Collection 2025</h1>
-        <p>Discover the latest trends and styles for the upcoming summer season.</p>
-        <a href="products.html" class="btn">Shop Now</a>
+      <div class="products-header">
+        <h1 class="section-title">All Products</h1>
+        <div class="products-filters">
+          <div class="filter-group">
+            <label for="category-filter">Category:</label>
+            <select id="category-filter">
+              <option value="all">All Categories</option>
+              <option value="denim">Denim Collection</option>
+              <option value="oversized">Oversized Essentials</option>
+              <option value="polo">Classic Polo</option>
+              <option value="basics">Everyday Basics</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="sort-filter">Sort By:</label>
+            <select id="sort-filter">
+              <option value="featured">Featured</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="newest">Newest</option>
+            </select>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
-  
-  <!-- Featured Categories -->
-  <section class="featured-categories">
-    <div class="container">
-      <h2 class="section-title">Shop by Category</h2>
-      <div class="categories">
-        <a href="products.html?category=denim" class="category-card">
-          <img src="https://source.unsplash.com/random/400x320/?denim" alt="Denim Collection">
-          <div class="overlay">
-            <h3>Denim Collection</h3>
-          </div>
-        </a>
-        <a href="products.html?category=oversized" class="category-card">
-          <img src="https://source.unsplash.com/random/400x320/?oversized" alt="Oversized Essentials">
-          <div class="overlay">
-            <h3>Oversized Essentials</h3>
-          </div>
-        </a>
-        <a href="products.html?category=polo" class="category-card">
-          <img src="https://source.unsplash.com/random/400x320/?polo" alt="Classic Polo">
-          <div class="overlay">
-            <h3>Classic Polo</h3>
-          </div>
-        </a>
-        <a href="products.html?category=basics" class="category-card">
-          <img src="https://source.unsplash.com/random/400x320/?basics" alt="Everyday Basics">
-          <div class="overlay">
-            <h3>Everyday Basics</h3>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Featured Products -->
-  <section class="featured-products">
-    <div class="container">
-      <h2 class="section-title">Featured Products</h2>
-      <div class="products">
+      
+      <div class="products-grid">
+        <!-- Product 1 -->
         <div class="product-card">
           <a href="product.html?id=1" class="product-img">
             <img src="https://source.unsplash.com/random/400x500/?tshirt" alt="Classic White T-Shirt">
@@ -105,6 +86,7 @@
           </div>
         </div>
         
+        <!-- Product 2 -->
         <div class="product-card">
           <a href="product.html?id=2" class="product-img">
             <img src="https://source.unsplash.com/random/400x500/?jeans" alt="Slim Fit Jeans">
@@ -120,6 +102,7 @@
           </div>
         </div>
         
+        <!-- Product 3 -->
         <div class="product-card">
           <a href="product.html?id=3" class="product-img">
             <img src="https://source.unsplash.com/random/400x500/?dress" alt="Summer Dress">
@@ -135,6 +118,7 @@
           </div>
         </div>
         
+        <!-- Product 4 -->
         <div class="product-card">
           <a href="product.html?id=4" class="product-img">
             <img src="https://source.unsplash.com/random/400x500/?jacket" alt="Casual Jacket">
@@ -149,6 +133,78 @@
             </div>
           </div>
         </div>
+        
+        <!-- Product 5 -->
+        <div class="product-card">
+          <a href="product.html?id=5" class="product-img">
+            <img src="https://source.unsplash.com/random/400x500/?hoodie" alt="Oversized Hoodie">
+          </a>
+          <div class="product-info">
+            <div class="product-title">Oversized Hoodie</div>
+            <div class="product-price">$45.99</div>
+            <div class="product-rating">★★★★☆</div>
+            <div class="product-actions">
+              <button class="add-to-cart">Add to Cart</button>
+              <button class="wishlist"><i class="fas fa-heart"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 6 -->
+        <div class="product-card">
+          <a href="product.html?id=6" class="product-img">
+            <img src="https://source.unsplash.com/random/400x500/?polo" alt="Classic Polo Shirt">
+          </a>
+          <div class="product-info">
+            <div class="product-title">Classic Polo Shirt</div>
+            <div class="product-price">$34.99</div>
+            <div class="product-rating">★★★★★</div>
+            <div class="product-actions">
+              <button class="add-to-cart">Add to Cart</button>
+              <button class="wishlist"><i class="fas fa-heart"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 7 -->
+        <div class="product-card">
+          <a href="product.html?id=7" class="product-img">
+            <img src="https://source.unsplash.com/random/400x500/?shorts" alt="Denim Shorts">
+          </a>
+          <div class="product-info">
+            <div class="product-title">Denim Shorts</div>
+            <div class="product-price">$39.99</div>
+            <div class="product-rating">★★★★☆</div>
+            <div class="product-actions">
+              <button class="add-to-cart">Add to Cart</button>
+              <button class="wishlist"><i class="fas fa-heart"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 8 -->
+        <div class="product-card">
+          <a href="product.html?id=8" class="product-img">
+            <img src="https://source.unsplash.com/random/400x500/?sweater" alt="Knit Sweater">
+          </a>
+          <div class="product-info">
+            <div class="product-title">Knit Sweater</div>
+            <div class="product-price">$54.99</div>
+            <div class="product-rating">★★★★★</div>
+            <div class="product-actions">
+              <button class="add-to-cart">Add to Cart</button>
+              <button class="wishlist"><i class="fas fa-heart"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="pagination">
+        <a href="#" class="active">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#" class="next">Next <i class="fas fa-chevron-right"></i></a>
       </div>
     </div>
   </section>

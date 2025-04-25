@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vestu - Modern Clothing Store</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <div class="logo">V<span>estu</span></div>
+      
+      <div class="search-bar">
+        <input type="text" placeholder="Search for products...">
+        <button><i class="fas fa-search"></i></button>
+      </div>
+      
+      <div class="nav-icons">
+        <a href="login.html" class="nav-icon">
+          <i class="fas fa-user"></i>
+        <a href="cart.html" class="nav-icon">
+          <i class="fas fa-shopping-cart"></i>
+          <span>3</span>
+        </a>
+      </div>
+    </div>
+    
+    <nav>
+      <div class="container">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html?category=denim">Denim Collection</a></li>
+          <li><a href="products.html?category=oversized">Oversized Essentials</a></li>
+          <li><a href="products.html?category=polo">Classic Polo</a></li>
+          <li><a href="products.html?category=basics">Everyday Basics</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+    
+    <nav>
+      <div class="container">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html?category=denim">Denim Collection</a></li>
+          <li><a href="products.html?category=oversized">Oversized Essentials</a></li>
+          <li><a href="products.html?category=polo">Classic Polo</a></li>
+          <li><a href="products.html?category=basics">Everyday Basics</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  
+  <!-- Profile Page -->
+  <section class="profile-page">
+    <div class="container">
+      <h1 class="section-title">My Account</h1>
+      
+      <div class="profile-content">
+        <div class="profile-sidebar">
+          <div class="profile-user">
+            <div class="profile-avatar">
+              <img src="https://source.unsplash.com/random/100x100/?portrait" alt="User Avatar">
+            </div>
+            <div class="profile-name">John Smith</div>
+            <div class="profile-email">john.smith@example.com</div>
+          </div>
+          
+          <ul class="profile-menu">
+            <li class="active"><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+            <li><a href="orders.html"><i class="fas fa-shopping-bag"></i> Orders</a></li>
+            <li><a href="addresses.html"><i class="fas fa-map-marker-alt"></i> Addresses</a></li>
+            <li><a href="wishlist.html"><i class="fas fa-heart"></i> Wishlist</a></li>
+            <li><a href="payment-methods.html"><i class="fas fa-credit-card"></i> Payment Methods</a></li>
+            <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+            <li><a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+          </ul>
+        </div>
+        
+        <div class="profile-main">
+          <div class="profile-section">
+            <div class="section-header">
+              <h2>Personal Information</h2>
+              <button class="edit-btn"><i class="fas fa-edit"></i> Edit</button>
+            </div>
+            
+            <div class="profile-info">
+              <div class="info-row">
+                <div class="info-label">First Name</div>
+                <div class="info-value">John</div>
+              </div>
+              <div class="info-row">
+                <div class="info-label">Last Name</div>
+                <div class="info-value">Smith</div>
+              </div>
+              <div class="info-row">
+                <div class="info-label">Email</div>
+                <div class="info-value">john.smith@example.com</div>
+              </div>
+              <div class="info-row">
+                <div class="info-label">Phone</div>
+                <div class="info-value">+1 (555) 123-4567</div>
+              </div>
+              <div class="info-row">
+                <div class="info-label">Date of Birth</div>
+                <div class="info-value">January 15, 1985</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="profile-section">
+            <div class="section-header">
+              <h2>Recent Orders</h2>
+              <a href="orders.html" class="view-all">View All</a>
+            </div>
+            
+            <div class="orders-list">
+              <div class="order-item">
+                <div class="order-header">
+                  <div class="order-id">#ORD-5723</div>
+                  <div class="order-date">May 15, 2025</div>
+                  <div class="order-status completed">Completed</div>
+                </div>
+                <div class="order-products">
+                  <div class="order-product">
+                    <div class="product-image">
+                      <img src="https://source.unsplash.com/random/60x60/?tshirt" alt="Classic White T-Shirt">
+                    </div>
+                    <div class="product-details">
+                      <div class="product-name">Classic White T-Shirt</div>
+                      <div class="product-meta">Size: M, Color: White</div>
+                    </div>
+                    <div class="product-price">$29.99</div>
+                  </div>
+                  <div class="order-product">
+                    <div class="product-image">
+                      <img src="https://source.unsplash.com/random/60x60/?jeans" alt="Slim Fit Jeans">
+                    </div>
+                    <div class="product-details">
+                      <div class="product-name">Slim Fit Jeans</div>
+                      <div class="product-meta">Size: 32, Color: Blue</div>
+                    </div>
+                    <div class="product-price">$49.99</div>
+                  </div>
+                </div>
+                <div class="order-footer">
+                  <div class="order-total">Total: $79.98</div>
+                  <div class="order-actions">
+                    <a href="order-details.html?id=5723" class="btn-sm">View Details</a>
+                    <button class="btn-sm secondary">Track Order</button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="order-item">
+                <div class="order-header">
+                  <div class="order-id">#ORD-5710</div>
+                  <div class="order-date">May 5, 2025</div>
+                  <div class="order-status completed">Completed</div>
+                </div>
+                <div class="order-products">
+                  <div class="order-product">
+                    <div class="product-image">
+                      <img src="https://source.unsplash.com/random/60x60/?jacket" alt="Casual Jacket">
+                    </div>
+                    <div class="product-details">
+                      <div class="product-name">Casual Jacket</div>
+                      <div class="product-meta">Size: L, Color: Black</div>
+                    </div>
+                    <div class="product-price">$79.99</div>
+                  </div>
+                </div>
+                <div class="order-footer">
+                  <div class="order-total">Total: $79.99</div>
+                  <div class="order-actions">
+                    <a href="order-details.html?id=5710" class="btn-sm">View Details</a>
+                    <button class="btn-sm secondary">Track Order</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="profile-section">
+            <div class="section-header">
+              <h2>Default Address</h2>
+              <a href="addresses.html" class="view-all">Manage Addresses</a>
+            </div>
+            
+            <div class="address-card">
+              <div class="address-type">Shipping Address</div>
+              <div class="address-name">John Smith</div>
+              <div class="address-content">
+                123 Main Street, Apt 4B<br>
+                New York, NY 10001<br>
+                United States
+              </div>
+              <div class="address-phone">+1 (555) 123-4567</div>
+              <div class="address-actions">
+                <button class="btn-sm"><i class="fas fa-edit"></i> Edit</button>
+                <button class="btn-sm secondary"><i class="fas fa-trash"></i> Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-columns">
+        <div class="footer-column">
+          <h3>Shop</h3>
+          <ul class="footer-links">
+            <li><a href="products.html?category=denim">Denim Collection</a></li>
+            <li><a href="products.html?category=oversized">Oversized Essentials</a></li>
+            <li><a href="products.html?category=polo">Classic Polo</a></li>
+            <li><a href="products.html?category=basics">Everyday Basics</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Customer Service</h3>
+          <ul class="footer-links">
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+            <li><a href="shipping.html">Shipping & Returns</a></li>
+            <li><a href="size-guide.html">Size Guide</a></li>
+            <li><a href="track-order.html">Track Order</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>About Us</h3>
+          <ul class="footer-links">
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="press.html">Press</a></li>
+            <li><a href="sustainability.html">Sustainability</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Legal</h3>
+          <ul class="footer-links">
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="cookies.html">Cookie Policy</a></li>
+            <li><a href="terms-of-use.html">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        © 2025 Vestu. All rights reserved.
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

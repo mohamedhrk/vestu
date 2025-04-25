@@ -315,14 +315,7 @@
   .add-to-cart:hover {
     background-color: #1e4a73;
   }
-  
-  .wishlist {
-    background: none;
-    border: none;
-    color: var(--medium-gray);
-    cursor: pointer;
-  }
-  
+    
   /* Footer */
   footer {
     background-color: #1a1a1a;
@@ -635,21 +628,7 @@
   .add-to-cart-btn {
     flex: 1;
   }
-  
-  .wishlist-btn {
-    background-color: var(--white);
-    color: var(--text);
-    border: 1px solid var(--light-gray);
-    padding: 12px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-  
-  .wishlist-btn:hover {
-    background-color: var(--light-gray);
-  }
-  
+
   .product-meta-info {
     display: flex;
     flex-direction: column;
