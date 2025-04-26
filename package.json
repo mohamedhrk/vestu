@@ -1,4 +1,11 @@
 {
+  "name": "vestu",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node app.js"
+  },
   "dependencies": {
     "dotenv": "^16.5.0",
     "ejs": "^3.1.10",
@@ -6,5 +13,8 @@
     "express-validator": "^7.2.1",
     "mongoose": "^8.13.3",
     "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }

@@ -12,10 +12,10 @@ const productSchema = new mongoose.Schema({
     type: Number, 
     required: true 
   },
-  category: { 
-    type: String, 
-    enum: ["Denim Collection", "Oversized Essentials", "Classic Polo", "Everyday Basics"], 
-    required: true 
+  category: {
+    type: String,
+    enum: ["Denim Collection", "Oversized Essentials", "Classic Polo", "Everyday Basics"],
+    required: true
   },
   images: [{ 
     type: String 
@@ -24,13 +24,6 @@ const productSchema = new mongoose.Schema({
     type: Number, 
     default: 0 
   },
-  sizes: [{ 
-    type: String 
-  }], // ["S", "M", "L"]
-  colors: [{ 
-    type: String, 
-    enum: ["Black", "White"] 
-  }], 
   featured: { 
     type: Boolean, 
     default: false 
