@@ -17,7 +17,7 @@ app.use(morgan('dev'));
 app.use(express.static('public'));
 
 // MongoDB URI
-const dbURI = 'mongodb+srv://uniproject08:abc12345%23@cluster0.yubklsz.mongodb.net/vestu?retryWrites=true&w=majority&appName=cluster0';
+const dbURI = 'mongodb://localhost:27017/productsDB';
 
 // MongoDB Connection
 mongoose.connect(dbURI)
