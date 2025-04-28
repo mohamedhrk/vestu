@@ -1,44 +1,28 @@
 const express = require('express');
+const { body, validationResult, Result } = require('express-validator');
 const morgan = require('morgan');
+const mongoose = require('mongoose');
+const vestu = require('./models/index');
 
 // Initialize Express App
 const app = express();
 const PORT = 3000;
 
-// Register View Engine
-app.set('view engine', 'ejs');
+// connect to mongoDB
+const dbURI = 'mongodb+srv://uniproject08:abc12345%23@cluster0.yubklsz.mongodb.net/vestu?retryWrites=true&w=majority&appName=cluster0';
+mongoose.connect(dbURI)
+  .then((result) => app.listen(3000))
+  .catch((err) => console.log(err));
 
-// Middleware & Static Files
+// Static Files 
 app.use(express.static('public')); // Serve static files
-app.use(express.urlencoded({ extended: true })); // Parse form data
-app.use(morgan('dev')); // Log HTTP requests
 
-// Custom Middleware
-app.use((req, res, next) => {
-  res.locals.path = req.path; // Attach current path to locals for templates
-  next();
-});
+// middlewares 
+app.use(morgan('dev'));
 
 // Home Route
 app.get('/', (req, res) => {
-  const featuredProducts = [
-    {
-      name: "Essential White T-Shirt",
-      category: "Everyday Basics",
-      price: 29,
-      image: "" 
-    },
-    {
-      name: "Slim Fit Jeans",
-      category: "Denim Collection",
-      price: 49,
-      image: ""
-    }
-  ];
-  res.render('home', { products: featuredProducts }); // Render the home.ejs template
+  res.sendFile(__dirname+'/views/index.html');
+  //res.render('home'); 
 });
 
-// Start the Server
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});

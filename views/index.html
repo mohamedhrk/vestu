@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vestu - Modern Clothing Store</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <div class="logo">V<span>estu</span></div>
+      
+      <div class="search-bar">
+        <input type="text" placeholder="Search for products...">
+        <button><i class="fas fa-search"></i></button>
+      </div>
+      
+      <div class="nav-icons">
+        <a href="login.html" class="nav-icon">
+          <i class="fas fa-user"></i>
+        <a href="cart.html" class="nav-icon">
+          <i class="fas fa-shopping-cart"></i>
+          <span>3</span>
+        </a>
+      </div>
+    </div>
+    
+    <nav>
+      <div class="container">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html?category=denim">Denim Collection</a></li>
+          <li><a href="products.html?category=oversized">Oversized Essentials</a></li>
+          <li><a href="products.html?category=polo">Classic Polo</a></li>
+          <li><a href="products.html?category=basics">Everyday Basics</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Summer Collection 2025</h1>
+        <p>Discover the latest trends and styles for the upcoming summer season.</p>
+        <a href="products.html" class="btn">Shop Now</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Featured Categories -->
+  <section class="featured-categories">
+    <div class="container">
+      <h2 class="section-title">Shop by Category</h2>
+      <div class="categories">
+        <a href="products.html?category=denim" class="category-card">
+          <img src="https://source.unsplash.com/random/400x320/?denim" alt="Denim Collection">
+          <div class="overlay">
+            <h3>Denim Collection</h3>
+          </div>
+        </a>
+        <a href="products.html?category=oversized" class="category-card">
+          <img src="https://source.unsplash.com/random/400x320/?oversized" alt="Oversized Essentials">
+          <div class="overlay">
+            <h3>Oversized Essentials</h3>
+          </div>
+        </a>
+        <a href="products.html?category=polo" class="category-card">
+          <img src="https://source.unsplash.com/random/400x320/?polo" alt="Classic Polo">
+          <div class="overlay">
+            <h3>Classic Polo</h3>
+          </div>
+        </a>
+        <a href="products.html?category=basics" class="category-card">
+          <img src="https://source.unsplash.com/random/400x320/?basics" alt="Everyday Basics">
+          <div class="overlay">
+            <h3>Everyday Basics</h3>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Featured Products -->
+  <section class="featured-products">
+    <div class="container">
+      <h2 class="section-title">Featured Products</h2>
+      <div class="products">
+        <div class="product-card">
+          <a href="product.html?id=1" class="product-img">
+            <img src="https://source.unsplash.com/random/400x500/?tshirt" alt="Classic White T-Shirt">
+          </a>
+          <div class="product-info">
+            <div class="product-title">Classic White T-Shirt</div>
+            <div class="product-price">$29.99</div>
+            <div class="product-rating">★★★★☆</div>
+            <div class="product-actions">
+              <button class="add-to-cart">Add to Cart</button>
+              <button class="wishlist"><i class="fas fa-heart"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="product-card">
+          <a href="product.html?id=2" class="product-img">
+            <img src="https://source.unsplash.com/random/400x500/?jeans" alt="Slim Fit Jeans">
+          </a>
+          <div class="product-info">
+            <div class="product-title">Slim Fit Jeans</div>
+            <div class="product-price">$49.99</div>
+            <div class="product-rating">★★★★★</div>
+            <div class="product-actions">
+              <button class="add-to-cart">Add to Cart</button>
+              <button class="wishlist"><i class="fas fa-heart"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="product-card">
+          <a href="product.html?id=3" class="product-img">
+            <img src="https://source.unsplash.com/random/400x500/?dress" alt="Summer Dress">
+          </a>
+          <div class="product-info">
+            <div class="product-title">Summer Dress</div>
+            <div class="product-price">$59.99</div>
+            <div class="product-rating">★★★★☆</div>
+            <div class="product-actions">
+              <button class="add-to-cart">Add to Cart</button>
+              <button class="wishlist"><i class="fas fa-heart"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="product-card">
+          <a href="product.html?id=4" class="product-img">
+            <img src="https://source.unsplash.com/random/400x500/?jacket" alt="Casual Jacket">
+          </a>
+          <div class="product-info">
+            <div class="product-title">Casual Jacket</div>
+            <div class="product-price">$79.99</div>
+            <div class="product-rating">★★★★★</div>
+            <div class="product-actions">
+              <button class="add-to-cart">Add to Cart</button>
+              <button class="wishlist"><i class="fas fa-heart"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-columns">
+        <div class="footer-column">
+          <h3>Shop</h3>
+          <ul class="footer-links">
+            <li><a href="products.html?category=denim">Denim Collection</a></li>
+            <li><a href="products.html?category=oversized">Oversized Essentials</a></li>
+            <li><a href="products.html?category=polo">Classic Polo</a></li>
+            <li><a href="products.html?category=basics">Everyday Basics</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Customer Service</h3>
+          <ul class="footer-links">
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+            <li><a href="shipping.html">Shipping & Returns</a></li>
+            <li><a href="size-guide.html">Size Guide</a></li>
+            <li><a href="track-order.html">Track Order</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>About Us</h3>
+          <ul class="footer-links">
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="press.html">Press</a></li>
+            <li><a href="sustainability.html">Sustainability</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Legal</h3>
+          <ul class="footer-links">
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="cookies.html">Cookie Policy</a></li>
+            <li><a href="terms-of-use.html">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        © 2025 Vestu. All rights reserved.
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

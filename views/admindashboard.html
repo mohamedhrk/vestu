@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vestu - Modern Clothing Store</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <div class="logo">V<span>estu</span></div>
+      
+      <div class="search-bar">
+        <input type="text" placeholder="Search for products...">
+        <button><i class="fas fa-search"></i></button>
+      </div>
+      
+      <div class="nav-icons">
+        <a href="login.html" class="nav-icon">
+          <i class="fas fa-user"></i>
+        <a href="cart.html" class="nav-icon">
+          <i class="fas fa-shopping-cart"></i>
+          <span>3</span>
+        </a>
+      </div>
+    </div>
+    
+    <nav>
+      <div class="container">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html?category=denim">Denim Collection</a></li>
+          <li><a href="products.html?category=oversized">Oversized Essentials</a></li>
+          <li><a href="products.html?category=polo">Classic Polo</a></li>
+          <li><a href="products.html?category=basics">Everyday Basics</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  
+  <!-- Admin Dashboard -->
+  <section class="admin-container">
+    <div class="container">
+      <div class="admin-header">
+        <h1>Admin Dashboard</h1>
+        <p class="admin-welcome">Welcome back, Admin User</p>
+      </div>
+      
+      <div class="admin-tabs">
+        <div class="admin-tab active">Products</div>
+        <div class="admin-tab">Add Product</div>
+        <div class="admin-tab">Users</div>
+        <div class="admin-tab">Orders</div>
+      </div>
+      
+      <div class="admin-section">
+        <h2>Manage Products</h2>
+        
+        <table class="product-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Brand</th>
+              <th>Price</th>
+              <th>Featured</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Urban Stealth Hoodie</td>
+              <td>Tops</td>
+              <td>StreetCore</td>
+              <td>$89.99</td>
+              <td><span class="featured-check">✓</span></td>
+              <td class="actions">
+                <a href="#" class="edit-btn">Edit</a>
+                <a href="#" class="delete-btn">Delete</a>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Concrete Jungle Tee</td>
+              <td>Tops</td>
+              <td>UrbanThreads</td>
+              <td>$39.99</td>
+              <td><span class="featured-check">✓</span></td>
+              <td class="actions">
+                <a href="#" class="edit-btn">Edit</a>
+                <a href="#" class="delete-btn">Delete</a>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Tech Cargo Pants</td>
+              <td>Bottoms</td>
+              <td>TechWear</td>
+              <td>$119.99</td>
+              <td><span class="featured-dash">−</span></td>
+              <td class="actions">
+                <a href="#" class="edit-btn">Edit</a>
+                <a href="#" class="delete-btn">Delete</a>
+              </td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Neon Nights Sneakers</td>
+              <td>Footwear</td>
+              <td>UrbanKicks</td>
+              <td>$149.99</td>
+              <td><span class="featured-check">✓</span></td>
+              <td class="actions">
+                <a href="#" class="edit-btn">Edit</a>
+                <a href="#" class="delete-btn">Delete</a>
+              </td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Street Essentials Cap</td>
+              <td>Accessories</td>
+              <td>StreetCore</td>
+              <td>$34.99</td>
+              <td><span class="featured-dash">−</span></td>
+              <td class="actions">
+                <a href="#" class="edit-btn">Edit</a>
+                <a href="#" class="delete-btn">Delete</a>
+              </td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Urban Tactical Vest</td>
+              <td>Tops</td>
+              <td>TechWear</td>
+              <td>$129.99</td>
+              <td><span class="featured-check">✓</span></td>
+              <td class="actions">
+                <a href="#" class="edit-btn">Edit</a>
+                <a href="#" class="delete-btn">Delete</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-columns">
+        <div class="footer-column">
+          <h3>Shop</h3>
+          <ul class="footer-links">
+            <li><a href="products.html?category=denim">Denim Collection</a></li>
+            <li><a href="products.html?category=oversized">Oversized Essentials</a></li>
+            <li><a href="products.html?category=polo">Classic Polo</a></li>
+            <li><a href="products.html?category=basics">Everyday Basics</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Customer Service</h3>
+          <ul class="footer-links">
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+            <li><a href="shipping.html">Shipping & Returns</a></li>
+            <li><a href="size-guide.html">Size Guide</a></li>
+            <li><a href="track-order.html">Track Order</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>About Us</h3>
+          <ul class="footer-links">
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="press.html">Press</a></li>
+            <li><a href="sustainability.html">Sustainability</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Legal</h3>
+          <ul class="footer-links">
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="cookies.html">Cookie Policy</a></li>
+            <li><a href="terms-of-use.html">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        © 2025 Vestu. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple tab functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const tabs = document.querySelectorAll('.admin-tab');
+      
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          // Remove active class from all tabs
+          tabs.forEach(t => t.classList.remove('active'));
+          
+          // Add active class to clicked tab
+          this.classList.add('active');
+          
+          // Here you would normally show/hide content based on the selected tab
+          // For this demo, we're just showing the Products tab content
+        });
+      });
+    });
+  </script>
+</body>
+</html>
