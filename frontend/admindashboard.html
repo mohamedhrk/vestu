@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vestu - Admin Dashboard</title>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Your Global Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* Admin container */
+    .admin-container {
+      padding: 2rem 0;
+    }
+    
+    .admin-header {
+      margin-bottom: 2rem;
+    }
+    
+    .admin-welcome {
+      color: #666;
+      margin-top: 0.5rem;
+    }
+    
+    /* Admin tabs */
+    .admin-tabs {
+      display: flex;
+      border-bottom: 1px solid #e5e5e5;
+      margin-bottom: 2rem;
+    }
+    
+    .admin-tab {
+      padding: 1rem 1.5rem;
+      font-weight: 500;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.3s;
+    }
+    
+    .admin-tab:hover {
+      color: #333;
+    }
+    
+    .admin-tab.active {
+      color: #333;
+      border-bottom-color: #333;
+    }
+    
+    /* Admin section */
+    .admin-section {
+      margin-bottom: 3rem;
+    }
+    
+    .admin-section h2 {
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+    
+    /* Add product table styles missing in original */
+    .product-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .product-table th,
+    .product-table td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid #e5e5e5;
+    }
+    
+    .product-table th {
+      background-color: #f5f5f5;
+      font-weight: 600;
+    }
+    
+    .featured-check {
+      color: #388e3c;
+    }
+    
+    .featured-dash {
+      color: #999;
+    }
+    
+    .actions {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .actions a {
+      padding: 0.25rem 0.5rem;
+      font-size: 0.85rem;
+      border-radius: 4px;
+      text-decoration: none;
+    }
+    
+    .edit-btn {
+      background-color: #e3f2fd;
+      color: #1976d2;
+    }
+    
+    .delete-btn {
+      background-color: #ffebee;
+      color: #d32f2f;
+    }
+    
+    /* Additional styles for tab content */
+    .admin-tab-content {
+      display: none;
+    }
+    
+    .admin-tab-content.active {
+      display: block;
+    }
+    
+    /* Form styles */
+    .admin-form {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .admin-form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .admin-form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    
+    .admin-form-group input,
+    .admin-form-group select,
+    .admin-form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #e5e5e5;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: inherit;
+    }
+    
+    .admin-form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    .admin-form-row {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -10px;
+    }
+    
+    .admin-form-col {
+      flex: 1;
+      padding: 0 10px;
+      min-width: 200px;
+    }
+    
+    .admin-form-submit {
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+    
+    .admin-form-submit:hover {
+      background-color: #555;
+    }
+    
+    /* Users table */
+    .users-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .users-table th,
+    .users-table td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid #e5e5e5;
+    }
+    
+    .users-table th {
+      background-color: #f5f5f5;
+      font-weight: 600;
+    }
+    
+    /* Orders table */
+    .orders-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .orders-table th,
+    .orders-table td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid #e5e5e5;
+    }
+    
+    .orders-table th {
+      background-color: #f5f5f5;
+      font-weight: 600;
+    }
+    
+    .order-status {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    
+    .status-pending {
+      background-color: #f3e5f5;
+      color: #8e24aa;
+    }
+    
+    .status-processing {
+      background-color: #fff8e1;
+      color: #ff8f00;
+    }
+    
+    .status-shipped {
+      background-color: #e1f5fe;
+      color: #0288d1;
+    }
+    
+    .status-delivered {
+      background-color: #e8f5e9;
+      color: #388e3c;
+    }
+    
+    .status-cancelled {
+      background-color: #ffebee;
+      color: #d32f2f;
+    }
+    
+    @media (max-width: 768px) {
+      .admin-tabs {
+        flex-wrap: wrap;
+      }
+      
+      .admin-tab {
+        padding: 0.75rem 1rem;
+      }
+      
+      .admin-form-row {
+        flex-direction: column;
+      }
+      
+      .admin-form-col {
+        margin-bottom: 1rem;
+      }
+      
+      .product-table,
+      .users-table,
+      .orders-table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+    <div class="container header-container">
+      <div class="logo">V<span>estu</span></div>
+      
+      <div class="search-bar">
+        <input type="text" placeholder="Search for products...">
+        <button><i class="fas fa-search"></i></button>
+      </div>
+      
+      <div class="nav-icons">
+        <a href="login.html" class="nav-icon">
+          <i class="fas fa-user"></i>
+        </a>
+        <a href="cart.html" class="nav-icon">
+          <i class="fas fa-shopping-cart"></i>
+          <span>3</span>
+        </a>
+      </div>
+    </div>
+    
+    <nav>
+      <div class="container">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html?category=denim">Denim Collection</a></li>
+          <li><a href="products.html?category=oversized">Oversized Essentials</a></li>
+          <li><a href="products.html?category=polo">Classic Polo</a></li>
+          <li><a href="products.html?category=basics">Everyday Basics</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Admin Dashboard -->
+  <section class="admin-container container">
+    <div class="admin-header">
+      <h1>Admin Dashboard</h1>
+      <p class="admin-welcome">Welcome back, Admin User</p>
+    </div>
+    
+    <div class="admin-tabs">
+      <div class="admin-tab active" data-tab="products">Products</div>
+      <div class="admin-tab" data-tab="add-product">Add Product</div>
+      <div class="admin-tab" data-tab="users">Users</div>
+      <div class="admin-tab" data-tab="orders">Orders</div>
+    </div>
+    
+    <!-- Products Tab Content -->
+    <div id="products" class="admin-tab-content active">
+      <div class="admin-section">
+        <h2>Manage Products</h2>
+        
+        <table class="product-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Price</th>
+              <th>Stock</th>
+              <th>Featured</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Urban Stealth Hoodie</td>
+              <td>Oversized Essentials</td>
+              <td>$89.99</td>
+              <td>15</td>
+              <td><span class="featured-check">✓</span></td>
+              <td class="actions">
+                <a href="#" class="edit-btn">Edit</a>
+                <a href="#" class="delete-btn">Delete</a>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Concrete Jungle Tee</td>
+              <td>Everyday Basics</td>
+              <td>$39.99</td>
+              <td>28</td>
+              <td><span class="featured-check">✓</span></td>
+              <td class="actions">
+                <a href="#" class="edit-btn">Edit</a>
+                <a href="#" class="delete-btn">Delete</a>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Downtown Denim Jeans</td>
+              <td>Denim Collection</td>
+              <td>$79.99</td>
+              <td>7</td>
+              <td><span class="featured-dash">-</span></td>
+              <td class="actions">
+                <a href="#" class="edit-btn">Edit</a>
+                <a href="#" class="delete-btn">Delete</a>
+              </td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Classic Polo Shirt</td>
+              <td>Classic Polo</td>
+              <td>$59.99</td>
+              <td>20</td>
+              <td><span class="featured-dash">-</span></td>
+              <td class="actions">
+                <a href="#" class="edit-btn">Edit</a>
+                <a href="#" class="delete-btn">Delete</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+    <!-- Add Product Tab Content -->
+    <div id="add-product" class="admin-tab-content">
+      <div class="admin-section">
+        <h2>Add New Product</h2>
+        
+        <form class="admin-form" id="product-form">
+          <div class="admin-form-row">
+            <div class="admin-form-col">
+              <div class="admin-form-group">
+                <label for="product-name">Product Name</label>
+                <input type="text" id="product-name" placeholder="Enter product name" required>
+              </div>
+            </div>
+          </div>
+          
+          <div class="admin-form-row">
+            <div class="admin-form-col">
+              <div class="admin-form-group">
+                <label for="product-category">Category</label>
+                <select id="product-category" required>
+                  <option value="">Select category</option>
+                  <option value="Denim Collection">Denim Collection</option>
+                  <option value="Oversized Essentials">Oversized Essentials</option>
+                  <option value="Classic Polo">Classic Polo</option>
+                  <option value="Everyday Basics">Everyday Basics</option>
+                </select>
+              </div>
+            </div>
+            <div class="admin-form-col">
+              <div class="admin-form-group">
+                <label for="product-price">Price</label>
+                <input type="number" id="product-price" placeholder="0.00" step="0.01" min="0" required>
+              </div>
+            </div>
+          </div>
+          
+          <div class="admin-form-row">
+            <div class="admin-form-col">
+              <div class="admin-form-group">
+                <label for="product-stock">Stock Quantity</label>
+                <input type="number" id="product-stock" placeholder="0" step="1" min="0">
+              </div>
+            </div>
+            <div class="admin-form-col">
+              <div class="admin-form-group">
+                <label for="product-featured">Featured Product</label>
+                <select id="product-featured">
+                  <option value="false">No</option>
+                  <option value="true">Yes</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          
+          <div class="admin-form-group">
+            <label for="product-description">Product Description</label>
+            <textarea id="product-description" placeholder="Enter product description"></textarea>
+          </div>
+          
+          <div class="admin-form-group">
+            <label for="product-images">Product Images</label>
+            <input type="file" id="product-images" accept="image/*" multiple>
+            <small>You can select multiple images</small>
+          </div>
+          
+          <button type="submit" class="admin-form-submit">Add Product</button>
+        </form>
+      </div>
+    </div>
+    
+    <!-- Users Tab Content -->
+    <div id="users" class="admin-tab-content">
+      <div class="admin-section">
+        <h2>Manage Users</h2>
+        
+        <table class="users-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Joined Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>johnsmith22</td>
+              <td>john.smith@example.com</td>
+              <td>user</td>
+              <td>Jan 15, 2025</td>
+              <td class="actions">
+                <a href="#" class="edit-btn">Edit</a>
+                <a href="#" class="delete-btn">Delete</a>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>janedoe</td>
+              <td>jane.doe@example.com</td>
+              <td>user</td>
+              <td>Feb 3, 2025</td>
+              <td class="actions">
+                <a href="#" class="edit-btn">Edit</a>
+                <a href="#" class="delete-btn">Delete</a>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>admin_alex</td>
+              <td>alex.j@example.com</td>
+              <td>admin</td>
+              <td>Oct 12, 2024</td>
+              <td class="actions">
+                <a href="#" class="edit-btn">Edit</a>
+                <a href="#" class="delete-btn">Delete</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+    <!-- Orders Tab Content -->
+    <div id="orders" class="admin-tab-content">
+      <div class="admin-section">
+        <h2>Recent Orders</h2>
+        
+        <table class="orders-table">
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Customer</th>
+              <th>Date</th>
+              <th>Total</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ORD6450f812c34a</td>
+              <td>johnsmith22</td>
+              <td>Apr 27, 2025</td>
+              <td>$129.98</td>
+              <td><span class="order-status status-processing">processing</span></td>
+              <td class="actions">
+                <a href="#" class="edit-status-btn">Edit Status</a>
+              </td>
+            </tr>
+            <tr>
+              <td>ORD6450f7b9c12c</td>
+              <td>janedoe</td>
+              <td>Apr 26, 2025</td>
+              <td>$89.99</td>
+              <td><span class="order-status status-shipped">shipped</span></td>
+              <td class="actions">
+                <a href="#" class="edit-status-btn">Edit Status</a>
+              </td>
+            </tr>
+            <tr>
+              <td>ORD6450f5a3b92e</td>
+              <td>mikebrn</td>
+              <td>Apr 25, 2025</td>
+              <td>$219.97</td>
+              <td><span class="order-status status-delivered">delivered</span></td>
+              <td class="actions">
+                <a href="#" class="edit-status-btn">Edit Status</a>
+              </td>
+            </tr>
+            <tr>
+              <td>ORD6450f492a81d</td>
+              <td>emj_shop</td>
+              <td>Apr 24, 2025</td>
+              <td>$59.99</td>
+              <td><span class="order-status status-pending">pending</span></td>
+              <td class="actions">
+                <a href="#" class="edit-status-btn">Edit Status</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-columns">
+        <div class="footer-column">
+          <h3>Shop</h3>
+          <ul class="footer-links">
+            <li><a href="products.html?category=denim">Denim Collection</a></li>
+            <li><a href="products.html?category=oversized">Oversized Essentials</a></li>
+            <li><a href="products.html?category=polo">Classic Polo</a></li>
+            <li><a href="products.html?category=basics">Everyday Basics</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Customer Service</h3>
+          <ul class="footer-links">
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+            <li><a href="shipping.html">Shipping & Returns</a></li>
+            <li><a href="size-guide.html">Size Guide</a></li>
+            <li><a href="track-order.html">Track Order</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>About Us</h3>
+          <ul class="footer-links">
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="press.html">Press</a></li>
+            <li><a href="sustainability.html">Sustainability</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Legal</h3>
+          <ul class="footer-links">
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="cookies.html">Cookie Policy</a></li>
+            <li><a href="terms-of-use.html">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        © 2025 Vestu. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Mobile menu toggle
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
+
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', function () {
+          navLinks.classList.toggle('active');
+        });
+      }
+
+      // Tab switching logic
+      const tabs = document.querySelectorAll('.admin-tab');
+      const tabContents = document.querySelectorAll('.admin-tab-content');
+      
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          // Remove active class from all tabs
+          tabs.forEach(t => t.classList.remove('active'));
+          // Add active class to clicked tab
+          this.classList.add('active');
+          
+          // Hide all tab contents
+          tabContents.forEach(content => content.classList.remove('active'));
+          
+          // Show the corresponding tab content
+          const tabId = this.getAttribute('data-tab');
+          document.getElementById(tabId).classList.add('active');
+        });
+      });
+      
+      // Add product form submission
+      const addProductForm = document.getElementById('product-form');
+      if (addProductForm) {
+        addProductForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          // Get form values
+          const productName = document.getElementById('product-name').value;
+          const productCategory = document.getElementById('product-category').value;
+          const productPrice = document.getElementById('product-price').value;
+          const productStock = document.getElementById('product-stock').value;
+          const productFeatured = document.getElementById('product-featured').value;
+          const productDescription = document.getElementById('product-description').value;
+          
+          // Get image files (would be handled by backend file upload in a real app)
+          const imageFiles = document.getElementById('product-images').files;
+          const imageFilesCount = imageFiles.length;
+          
+          // Form validation
+          if (!productName || !productCategory || !productPrice) {
+            alert('Please fill in all required fields');
+            return;
+          }
+          
+          // Here you would normally send this data to your backend
+          console.log('Product submitted:', {
+            name: productName,
+            description: productDescription,
+            price: Number(productPrice),
+            category: productCategory,
+            stock: Number(productStock) || 0,
+            featured: productFeatured === 'true',
+            images: `${imageFilesCount} images selected (would be uploaded to server)`
+          });
+          
+          // Add product to the table for demonstration
+          const productsTab = document.querySelector('[data-tab="products"]');
+          const productTable = document.querySelector('.product-table tbody');
+          
+          if (productTable) {
+            const newRow = document.createElement('tr');
+            const lastId = productTable.rows.length + 1;
+            
+            newRow.innerHTML = `
+              <td>${lastId}</td>
+              <td>${productName}</td>
+              <td>${productCategory}</td>
+              <td>$${productPrice}</td>
+              <td>${productStock || 0}</td>
+              <td><span class="${productFeatured === 'true' ? 'featured-check' : 'featured-dash'}">${productFeatured === 'true' ? '✓' : '-'}</span></td>
+              <td class="actions">
+                <a href="#" class="edit-btn">Edit</a>
+                <a href="#" class="delete-btn">Delete</a>
+              </td>
+            `;
+            
+            productTable.appendChild(newRow);
+            
+            // Add event listeners to new buttons
+            const newDeleteBtn = newRow.querySelector('.delete-btn');
+            const newEditBtn = newRow.querySelector('.edit-btn');
+            
+            if (newDeleteBtn) {
+              newDeleteBtn.addEventListener('click', handleDeleteProduct);
+            }
+            
+            if (newEditBtn) {
+              newEditBtn.addEventListener('click', handleEditProduct);
+            }
+          }
+          
+          // Reset form
+          addProductForm.reset();
+          
+          // Switch to products tab to show the new product
+          productsTab.click();
+          
+          // Show success message
+          alert('Product added successfully!');
+        });
+      }
+      
+      // Delete product handler function
+      function handleDeleteProduct(e) {
+        e.preventDefault();
+        
+        // Get the product row
+        const row = this.closest('tr');
+        const productId = row.querySelector('td').textContent;
+        const productName = row.querySelectorAll('td')[1].textContent;
+        
+        // Confirm deletion
+        if (confirm(`Are you sure you want to delete "${productName}" (ID: ${productId})?`)) {
+          // Here you would normally send a delete request to your backend
+          console.log('Deleting product ID:', productId);
+          
+          // Remove the row from the table
+          row.remove();
+        }
+      }
+      
+      // Edit product handler function
+      function handleEditProduct(e) {
+        e.preventDefault();
+        
+        // Get product data
+        const row = this.closest('tr');
+        const cells = row.querySelectorAll('td');
+        
+        const productId = cells[0].textContent;
+        const productName = cells[1].textContent;
+        const productCategory = cells[2].textContent;
+        const productPrice = cells[3].textContent.replace('$', '');
+        const productStock = cells[4].textContent;
+        const productFeatured = cells[5].querySelector('.featured-check') ? 'true' : 'false';
+        
+        // Switch to add product tab
+        document.querySelector('[data-tab="add-product"]').click();
+        
+        // Populate form with product data
+        document.getElementById('product-name').value = productName;
+        
+        const categorySelect = document.getElementById('product-category');
+        for (let i = 0; i < categorySelect.options.length; i++) {
+          if (categorySelect.options[i].value === productCategory) {
+            categorySelect.selectedIndex = i;
+            break;
+          }
+        }
+        
+        document.getElementById('product-price').value = productPrice;
+        document.getElementById('product-stock').value = productStock;
+        
+        const featuredSelect = document.getElementById('product-featured');
+        featuredSelect.value = productFeatured;
+        
+        // Change form submit button text to "Update Product"
+        const submitBtn = document.querySelector('.admin-form-submit');
+        if (submitBtn) {
+          submitBtn.textContent = 'Update Product';
+          
+          // Store original product ID for update
+          submitBtn.dataset.editId = productId;
+        }
+      }
+      
+      // Add event listeners to existing delete buttons
+      const deleteButtons = document.querySelectorAll('.delete-btn');
+      deleteButtons.forEach(button => {
+        button.addEventListener('click', handleDeleteProduct);
+      });
+      
+      // Add event listeners to existing edit buttons
+      const editButtons = document.querySelectorAll('.edit-btn');
+      editButtons.forEach(button => {
+        button.addEventListener('click', handleEditProduct);
+      });
+      
+      // Edit order status functionality
+      const editStatusButtons = document.querySelectorAll('.edit-status-btn');
+      editStatusButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // Get the order row
+          const row = this.closest('tr');
+          const orderId = row.querySelector('td').textContent;
+          const statusCell = row.querySelector('.order-status');
+          const currentStatus = statusCell.textContent;
+          
+          // Create the status dropdown
+          const statusOptions = ['pending', 'processing', 'shipped', 'delivered', 'cancelled'];
+          const statusSelect = document.createElement('select');
+          statusSelect.className = 'status-select';
+          
+          statusOptions.forEach(status => {
+            const option = document.createElement('option');
+            option.value = status;
+            option.textContent = status;
+            if (status === currentStatus) {
+              option.selected = true;
+            }
+            statusSelect.appendChild(option);
+          });
+          
+          // Create a save button
+          const saveButton = document.createElement('button');
+          saveButton.textContent = 'Save';
+          saveButton.className = 'status-save-btn';
+          saveButton.style.marginLeft = '8px';
+          saveButton.style.padding = '2px 8px';
+          saveButton.style.backgroundColor = '#333';
+          saveButton.style.color = 'white';
+          saveButton.style.border = 'none';
+          saveButton.style.borderRadius = '4px';
+          saveButton.style.cursor = 'pointer';
+          
+          // Replace the status with the dropdown and save button
+          const statusContainer = document.createElement('div');
+          statusContainer.style.display = 'flex';
+          statusContainer.style.alignItems = 'center';
+          statusContainer.appendChild(statusSelect);
+          statusContainer.appendChild(saveButton);
+          
+          // Store the original content to restore if needed
+          const originalContent = statusCell.innerHTML;
+          statusCell.innerHTML = '';
+          statusCell.appendChild(statusContainer);
+          
+          // Handle save button click
+          saveButton.addEventListener('click', function() {
+            const newStatus = statusSelect.value;
+            
+            // Update the display with the new status
+            statusCell.innerHTML = '';
+            const newStatusSpan = document.createElement('span');
+            newStatusSpan.className = `order-status status-${newStatus}`;
+            newStatusSpan.textContent = newStatus;
+            statusCell.appendChild(newStatusSpan);
+            
+            // Here you would normally send the status update to your backend
+            console.log(`Updated order ${orderId} status to: ${newStatus}`);
+          });
+          
+          // Handle clicks outside to cancel
+          document.addEventListener('click', function cancelEdit(event) {
+            if (!statusContainer.contains(event.target) && !button.contains(event.target)) {
+              statusCell.innerHTML = originalContent;
+              document.removeEventListener('click', cancelEdit);
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
